@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:intl/intl.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -135,6 +136,41 @@ class SignupPageState extends State<SignupPage> {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+class ConfirmationScreen extends StatelessWidget {
+  final Map<String, dynamic> formData;
+
+  const ConfirmationScreen(this.formData, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Confirmation")),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "Signup Successful!",
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            Text("First Name: ${formData['first_name']}"),
+            Text("Last Name: ${formData['last_name']}"),
+            Text("Email: ${formData['email']}"),
+            Text("Contact Number: ${formData['contact_number']}"),
+            Text("DOB: ${DateFormat('yyyy-MM-dd').format(formData['dob'])}"),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text("Back to Signup"),
+            ),
+          ],
         ),
       ),
     );
