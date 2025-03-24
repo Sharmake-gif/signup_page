@@ -132,7 +132,7 @@ class SignupPageState extends State<SignupPage> {
                     );
                   }
                 },
-                child: const Text("Sign Up"),
+                child: const Text("Sign Up Page"),
               ),
             ],
           ),
